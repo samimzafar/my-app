@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import axios from "axios";
+import { useQuery } from "react-query";
+const App = () => {
+  const getData = () => axios.get('http://localhost:4000/api/projects/');
+  const { isLoading, data } = useQuery('api-project', getData);
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {data.data.data?.map((values, index) => {
+        return <div key={index}>
+          <h2>{values.name}</h2>
+        </div>;
+      })
+      }
+    </>
   );
-}
+};
 
 export default App;
