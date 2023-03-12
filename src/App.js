@@ -12,14 +12,13 @@ const App = () => {
   console.log(data);
   return (
     <>
-      {data?.map((projectName) => {
-        return <div key={projectName}>
-          <h2>{projectName}</h2>
+      {data?.map((project) => {
+        return <div key={project.id}>
+          <h2>{project.name}</h2>
         </div>;
       })
       }
     </>
   );
 };
-
 export default App;

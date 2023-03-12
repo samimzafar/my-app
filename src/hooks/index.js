@@ -6,7 +6,7 @@ const useFetchAPI = (onSuccess, onError) => {
  return useQuery('api-project', getData, {
   onSuccess,
   onError,
-  select: (data) => data.data.data.map(project => project.name)
+  select: (data) => data.data.data.map(project => project)
 
  });
 };
