@@ -1,16 +1,9 @@
-import axios from "axios";
-import { useQuery } from "react-query";
+import { useFetchAPI } from "./hooks";
 const App = () => {
   const onSuccess = (data) => console.log("Perform after success", data);
   const onError = (error) => console.log("Perform after success", error);
-  const getData = () => axios.get('http://localhost:4000/api/projects');
-  const { isLoading, data, isError, error } = useQuery('api-project', getData, {
-    onSuccess,
-    onError,
-    select: (data) => data.data.data.map(project => project.name)
-
-  });
-  if (isLoading) {
+  const { isLoading, data, isError, error, isFetching } = useFetchAPI(onSuccess, onError);
+  if (isLoading || isFetching) {
     return <h2>Loading...</h2>;
   }
   if (isError) {
