@@ -1,5 +1,5 @@
 import { useFetchAPI } from "../hooks";
-const Home = () => {
+const ProjectsList = () => {
   const onSuccess = (data) => console.log("Perform after success", data);
   const onError = (error) => console.log("Perform after success", error);
   const { isLoading, data, isError, error, isFetching } = useFetchAPI(onSuccess, onError);
@@ -22,4 +22,4 @@ const Home = () => {
     </>
   );
 };
-export default Home;
+export default ProjectsList;
