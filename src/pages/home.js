@@ -1,4 +1,4 @@
-import { useFetchAPI } from "./hooks";
+import { useFetchAPI } from "../hooks";
 const Home = () => {
   const onSuccess = (data) => console.log("Perform after success", data);
   const onError = (error) => console.log("Perform after success", error);
@@ -12,6 +12,7 @@ const Home = () => {
   console.log(data);
   return (
     <>
+      <h1>React UseQuery</h1>
       {data?.map((project) => {
         return <div key={project.id}>
           <h2>{project.name}</h2>
