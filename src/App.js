@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ButtonAppBar from "./components/ButtonAppBar";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <ButtonAppBar />
+    </>
+  );
+};
 
-export default App
+export default App;
